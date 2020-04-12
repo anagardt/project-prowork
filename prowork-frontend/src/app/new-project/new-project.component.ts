@@ -25,8 +25,8 @@ export class NewProjectComponent implements OnInit {
 
   onSubmit() {
     const formValue = this.projectForm.value;
-    const formData = new FormData();
-    formData.set('email', formValue.emailAddress);
+    this.newProject = new Project();
+    this.newProject.name = formValue.name
     this.projectService.createNewProject(this.newProject)
       .subscribe((response: Project) => this.router.navigateByUrl('/home'),
         (error: any) => console.error(error));

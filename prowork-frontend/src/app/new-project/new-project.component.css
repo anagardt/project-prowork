@@ -1,0 +1,22 @@
+.container-form {
+  width: 700px;
+  border: 1px solid #a4c517!important;
+  background-color: #d6ffac!important;
+}
+
+.btn {
+  background-color: #a4c517!important;
+  border-color: #a4c517!important;
+}
+
+.btn-dark:hover{
+  color: green!important;
+}
+
+.btn-danger:hover{
+  color: red!important;
+}
+
+textarea {
+  resize: none;
+}

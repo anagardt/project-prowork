@@ -4,6 +4,9 @@ import com.draganatasevska.finki.prowork.web.backend.config.WebBackendConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+/**
+ *  The app configuration.
+ */
 @Configuration
 @Import({WebBackendConfig.class})
 public class AppConfig {

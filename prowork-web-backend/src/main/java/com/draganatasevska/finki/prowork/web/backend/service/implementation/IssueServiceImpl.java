@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import javax.servlet.ServletException;
 import java.util.Date;
 
+/**
+ * The implementation of @{@link IssueService}
+ */
 @Service
 @RequiredArgsConstructor
 public class IssueServiceImpl implements IssueService {
@@ -57,7 +60,7 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
-    public Issue changeAssignee(long issueId, String username) throws ServletException {
+    public Issue changeAssignee(long issueId, String username) {
         Issue issue = issueDao.findById(issueId).get();
         User user = userDao.findByUsername(username);
         issue.setAssignedTo(user);
@@ -65,17 +68,11 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
-    public Issue changeProject(long issueId,long projectId) throws ServletException {
+    public Issue changeProject(long issueId,long projectId) {
         Issue issue = issueDao.findById(issueId).get();
         Project project = projectDao.findById(projectId).get();
         issue.setProject(project);
         return issueDao.save(issue);
-    }
-
-    @Override
-    public Iterable<Issue> getAllIssuesForProject(long projectId) {
-        Project project= projectDao.findById(projectId).get();
-        return issueDao.findAllByProject(project);
     }
 
     @Override

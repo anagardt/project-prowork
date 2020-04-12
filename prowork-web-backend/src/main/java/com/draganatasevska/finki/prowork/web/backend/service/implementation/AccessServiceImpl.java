@@ -15,6 +15,9 @@ import javax.servlet.ServletException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
+/**
+ * The implementation of @{@link AccessService}
+ */
 @Service
 @RequiredArgsConstructor
 public class AccessServiceImpl implements AccessService {

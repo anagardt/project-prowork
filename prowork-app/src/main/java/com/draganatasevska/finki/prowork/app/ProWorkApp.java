@@ -7,9 +7,19 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+/**
+ *
+ * Starts the ProWOrk application.
+ */
 @SpringBootApplication
 @EnableJpaRepositories("com.draganatasevska.finki.prowork.web.backend.repository")
 public class ProWorkApp {
+
+    /**
+     *
+     * Main method that is executed.
+     * @param args passing argument
+     */
     public static void main(String[] args){
         SpringApplication.run(ProWorkApp.class, args);
     }

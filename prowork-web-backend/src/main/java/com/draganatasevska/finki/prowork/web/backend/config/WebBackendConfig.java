@@ -6,6 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * The web configuration.
+ */
 @Configuration
 @EntityScan(basePackageClasses = {WebComponents.class})
 @ComponentScan(basePackageClasses = {WebComponents.class})

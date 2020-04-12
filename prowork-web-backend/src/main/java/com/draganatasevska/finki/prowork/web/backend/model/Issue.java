@@ -8,6 +8,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
+/**
+ * Holder object for all issue data.
+ */
 @Entity
 @RequiredArgsConstructor
 @Data

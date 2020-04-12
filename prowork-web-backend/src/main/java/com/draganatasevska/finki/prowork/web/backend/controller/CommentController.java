@@ -8,10 +8,12 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.spring.web.json.Json;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ *  Controller for the comment model API requests.
+ */
 @Api(value = ApiSwaggerConstants.COMMENT_API_VALUE)
 @RestController
 @RequestMapping(value = "/api/comment", produces = MediaType.ALL_VALUE)
@@ -21,6 +23,13 @@ public class CommentController {
 
     private final CommentService commentService;
 
+    /**
+     * Returns a list of all comments associated with the issue that
+     * corresponds to the provided issueId.
+     * @param issueId the issueId that uniquely identifies the issue.
+     *
+     * @return {@link Iterable<Comment>} the list of all comments.
+     */
     @ApiOperation(value = ApiSwaggerConstants.ALL_COMMENTS_BY_ISSUE_OPERATION_VALUE,
         notes= ApiSwaggerConstants.ALL_COMMENTS_BY_ISSUE_OPERATION_NOTE,
         response= Iterable.class)
@@ -29,6 +38,13 @@ public class CommentController {
         return commentService.getAllCommentsForIssue(issueId);
     }
 
+    /**
+     * Adds new comment for an issue according to the Comment model provided.
+     * @param newComment the new Comment model.
+     * @param httpServletRequest used for user access check.
+     *
+     * @return {@link Comment} the newly created Comment.
+     */
     @ApiOperation(value = ApiSwaggerConstants.ADD_COMMENT_OPERATION_VALUE,
             notes= ApiSwaggerConstants.ADD_COMMENT_OPERATION_NOTE,
             response= Comment.class)
@@ -40,6 +56,12 @@ public class CommentController {
         return commentService.addComment(newComment, jwtToken);
     }
 
+    /**
+     * Deletes a comment associated with the provided comment id.
+     * @param commentId the commentId that uniquely identifies the comment.
+     *
+     * @return the commentId of the deleted comment.
+     */
     @ApiOperation(value = ApiSwaggerConstants.DELETE_COMMENT_OPERATION_VALUE,
             notes= ApiSwaggerConstants.DELETE_COMMENT_OPERATION_NOTE,
             response= Comment.class)

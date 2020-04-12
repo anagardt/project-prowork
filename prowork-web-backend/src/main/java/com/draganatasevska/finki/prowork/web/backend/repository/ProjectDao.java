@@ -6,8 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
+/**
+ * Dao used for project data.
+ */
 @Repository
 public interface ProjectDao extends CrudRepository<Project, Long> {
-    @Transactional
-    long deleteByProjectId(long projectId);
+
 }

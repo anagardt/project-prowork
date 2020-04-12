@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletException;
 import java.io.UnsupportedEncodingException;
 
+/**
+ *  Controller for the application access.
+ */
 @Api(value = ApiSwaggerConstants.ACCESS_API_VALUE)
 @RestController
 @RequestMapping(value = "/api/access", produces = MediaType.ALL_VALUE)
@@ -24,6 +27,15 @@ public class AccessController {
     private final AccessService accessService;
     private final JavaMailSender javaMailSender;
 
+    /**
+     * Register new user.
+     * @param user the user that tries to register.
+     *
+     * @return {@link User} the registered user,
+     * in case the registration is successful.
+     * @throws ServletException,UnsupportedEncodingException
+     * the exceptions that are thrown when the registration is not successful.
+     */
     @ApiOperation(value = ApiSwaggerConstants.REGISTER_USER_OPERATION_VALUE,
             notes= ApiSwaggerConstants.REGISTER_USER_OPERATION_NOTE,
             response= User.class)
@@ -32,6 +44,14 @@ public class AccessController {
         return accessService.registerUser(user);
     }
 
+    /**
+     * Login of a new user.
+     * @param login he user that tries to login.
+     *
+     * @return {@link User} the user that login successfully.
+     * @throws ServletException,UnsupportedEncodingException
+     * the exceptions that are thrown when the login is not successful.
+     */
     @ApiOperation(value = ApiSwaggerConstants.LOGIN_USER_OPERATION_VALUE,
             notes= ApiSwaggerConstants.LOGIN_USER_OPERATION_NOTE,
             response= String.class)
@@ -40,6 +60,14 @@ public class AccessController {
         return accessService.loginUser(login);
     }
 
+    /**
+     * Process the user reset password request.
+     * @param resetUser he user that tries to reset his/hers password.
+     * @param token the jwt token that is send through email
+     * when password reset is requested.
+     *
+     * @return {@link User} the user that tries to reset the password.
+     */
     @ApiOperation(value = ApiSwaggerConstants.PASSWORD_RESET_SAVE_OPERATION_VALUE,
             notes= ApiSwaggerConstants.PASSWORD_RESET_SAVE_OPERATION_NOTE,
             response= User.class)
@@ -49,6 +77,13 @@ public class AccessController {
         return accessService.resetUser(resetUser, token);
     }
 
+    /**
+     * Sends the reset password jwt token through user's email.
+     * @param email he email of the user that tries to reset
+     * his/hers password.
+     *
+     * @return {@link User} the user that tries reset the password.
+     */
     @ApiOperation(value = ApiSwaggerConstants.PASSWORD_RESET_OPERATION_VALUE,
             notes= ApiSwaggerConstants.PASSWORD_RESET_OPERATION_NOTE,
             response = User.class)

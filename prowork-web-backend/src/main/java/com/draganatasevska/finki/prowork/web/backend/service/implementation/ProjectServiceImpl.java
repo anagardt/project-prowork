@@ -6,6 +6,9 @@ import com.draganatasevska.finki.prowork.web.backend.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * The implementation of @{@link ProjectService}
+ */
 @Service
 @RequiredArgsConstructor
 public class ProjectServiceImpl implements ProjectService {
@@ -14,11 +17,6 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project createProject(Project project) {
         return projectDao.save(project);
-    }
-
-    @Override
-    public long deleteProject(long projectId) {
-        return projectDao.deleteByProjectId(projectId);
     }
 
     @Override

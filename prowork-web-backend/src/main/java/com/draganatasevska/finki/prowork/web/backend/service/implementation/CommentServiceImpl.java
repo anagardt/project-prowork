@@ -7,6 +7,9 @@ import com.draganatasevska.finki.prowork.web.backend.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * The implementation of @{@link CommentService}
+ */
 @Service
 @RequiredArgsConstructor
 public class CommentServiceImpl implements CommentService {

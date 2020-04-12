@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
+/**
+ * Holder object for all comment data.
+ */
 @Entity
 @Data
 @RequiredArgsConstructor

@@ -16,6 +16,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Logger;
 
+/**
+ * The implementation of @{@link GenericFilterBean} for
+ * providing the basic JwtFilter access level.
+ */
 public class JwtFilter extends GenericFilterBean {
 
     private static final Logger LOGGER = Logger.getLogger(JwtFilter.class.getName());

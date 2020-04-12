@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ *  Controller for the user model API requests.
+ */
 @Api(value = ApiSwaggerConstants.USER_API_VALUE)
 @RestController
 @RequestMapping(value = "/api/user", produces = MediaType.ALL_VALUE)
@@ -20,6 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
+
+    /**
+     * Returns the list of all users.
+     *
+     * @return {@link Iterable<User>} the list of users.
+     */
     @ApiOperation(value = ApiSwaggerConstants.ALL_USERS_OPERATION_VALUE,
             notes= ApiSwaggerConstants.ALL_USERS_OPERATION_NOTE,
             response= Iterable.class)

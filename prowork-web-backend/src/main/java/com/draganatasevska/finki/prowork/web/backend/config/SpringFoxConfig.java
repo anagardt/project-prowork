@@ -16,9 +16,16 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Configuration for spring fox.
+ */
 @Configuration
 public class SpringFoxConfig {
 
+    /**
+     * Configures the swagger.
+     * @return {@link Docket}
+     */
     @Bean
     public Docket swaggerConfiguration(){
         return new Docket(DocumentationType.SWAGGER_2)

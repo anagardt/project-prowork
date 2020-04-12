@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * Holder object for all project data.
+ */
 @Entity
 @RequiredArgsConstructor
 @Data
